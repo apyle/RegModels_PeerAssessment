@@ -1,0 +1,64 @@
+---
+title: "Impact of car attributes on milage"
+author: "Alexander Pyle, <apyle@github.com>"
+date: "October 9, 2016"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+---
+
+## Overview
+
+```{r overview, echo=FALSE}
+
+# load required libraries
+library(data.table)
+library(ggplot2)
+library(xtable)
+
+# variables used in the text and code, reinitiallized in the next chunk. Set here for use in text
+lambda <- 0.2   # given by assignment
+samples <- 40   # number of samples to use for the mean
+simulations <- 1000     # number of simulations to run
+popmean <- 1/lambda     # theoretical mean of the population
+popvariance <- (1/lambda)^2 / samples # theoretical variance of the population
+
+```
+
+Thesis statement goes here
+
+## Exploration
+
+
+
+```{r exploration}
+
+```
+
+
+
+## Analysis
+
+
+
+```{r analysis}
+
+```
+
+
+
+## Conclusion
+
+Summary of what we discovered.
+
+## Appendix
+
+This analysis was run with the following configuration. 
+
+```{r warning=FALSE}
+library(devtools)
+devtools::session_info() # display environment the script was create and run in.
+
+```
+
