@@ -10,12 +10,22 @@ output:
 
 ## Overview
 
-```{r overview, echo=FALSE}
+```{r overview, echo=TRUE}
+### echo s.b. FALSE for production, is TRUE for development
 
 # load required libraries
 library(data.table)
+library(dplyr)
 library(ggplot2)
 library(xtable)
+
+# get our data
+myCars <- data(mtcars)
+myCars <- mutate (mtcars, cylF = as.factor(cyl))
+
+rownames(myCars) <- rownames(mtcars)
+
+myCars
 
 # variables used in the text and code, reinitiallized in the next chunk. Set here for use in text
 lambda <- 0.2   # given by assignment
