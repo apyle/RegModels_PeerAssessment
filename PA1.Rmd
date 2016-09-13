@@ -10,6 +10,15 @@ output:
 
 ## Overview
 
+The Moter Trend data from the `mtcars` data set contains key information that 
+can be used to answer questions about transmissions and milage. For instance, we
+can find answers to the questions:
+
+- "Is an automatic or manual transmission better for MPG"
+- "How different is the MPG between automatic manual transmission?"
+
+The field `mtcars$am` contains the type of transmission, 0 is for automatic, and 
+1 is for manual transmissions.
 ```{r overview, echo=TRUE}
 ### echo s.b. FALSE for production, is TRUE for development
 
@@ -20,10 +29,17 @@ library(ggplot2)
 library(xtable)
 
 # get our data
-myCars <- data(mtcars)
-myCars <- mutate (mtcars, cylF = as.factor(cyl))
+data(mtcars)
+myCars <- mutate (mtcars, transF = factor(am, labels = c("Automatic", "Manual")))
+#rownames(myCars) <- rownames(mtcars)
 
-rownames(myCars) <- rownames(mtcars)
+# create a quick plot of the data
+gp <- ggplot(myCars, aes(x=transF, y=mpg, fill=transF))
+gp <- gp + geom_boxplot()
+gp <- gp + labs(title = "Figure 0.1: Spread of milage by transmission",
+                x = "Transmission", y = "Miles per Gallon")
+gp <- gp + guides(fill = guide_legend(title = "Transmission Type"))
+gp
 
 myCars
 
@@ -64,6 +80,7 @@ Summary of what we discovered.
 
 ## Appendix
 
+R Markdown source code for this analysis can be found at https://github.com/apyle/RegModels_PeerAssessment. 
 This analysis was run with the following configuration. 
 
 ```{r warning=FALSE}
