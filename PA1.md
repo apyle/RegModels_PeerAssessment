@@ -100,6 +100,20 @@ myCars
 ```
 
 ```r
+#gp <- ggplot(myCars, aes(x=am, y=mpg))
+#gp <- gp + geom_smooth(method = "lm", color = "black")
+#gp <- geom_point(size = 7, color = "black", alpha = 0.5)
+#gp <- geom_point(size = 5, color = "blue", alpha = 0.5)
+#gp <- gp + labs(title = "Figure 0.2: Spread of milage by transmission",
+#                x = "Transmission", y = "Miles per Gallon")
+#gp
+
+plot(mtcars$am, mtcars$mpg)
+```
+
+![](PA1_files/figure-html/overview-2.png) 
+
+```r
 # variables used in the text and code, reinitiallized in the next chunk. Set here for use in text
 lambda <- 0.2   # given by assignment
 samples <- 40   # number of samples to use for the mean
